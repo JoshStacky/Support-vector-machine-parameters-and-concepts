@@ -1,0 +1,27 @@
+# Bank Marketing SVM Classification
+
+Comparing SVM kernels on the UCI Bank Marketing dataset to predict 
+whether a customer will subscribe to a term deposit (binary classification).
+
+## Key Result
+Improved minority class (Yes) recall from 25% to 43% using class_weight balancing,
+without generating synthetic data.
+
+## Models Compared
+- Linear SVM
+- RBF SVM (best: C=10, gamma='scale')
+- Polynomial SVM (degree=3)
+
+## Dataset
+UCI Bank Marketing — ~41,000 rows, 52 features after encoding
+Class imbalance: ~88% No / ~12% Yes
+
+## Key Findings
+- RBF kernel outperformed linear and polynomial on minority class metrics
+- class_weight='balanced' preferred over SMOTE — mathematically equivalent
+  for SVM and avoids synthetic data artefacts
+- Optimal C=0.01 for linear SVM, lower than default, indicating wider margin
+  improves generalisation on this dataset
+
+## Tech
+Python, scikit-learn, pandas, Matplotlib, Seaborn
